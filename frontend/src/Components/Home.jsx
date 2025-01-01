@@ -9,11 +9,11 @@ function Home() {
     setTab(tab);
   };
 
-  console.log(task)
+  console.log(task);
 
   const handleAddTask = (e) => {
     e.preventDefault();
-    axios.post('http://localhost:8000/addtask', {task});
+    axios.post('http://localhost:8000/addtask', { task });
   };
 
   useEffect(() => {
@@ -25,13 +25,13 @@ function Home() {
         console.error('Error fetching data:', error);
       }
     };
-  
-    fetchData(); 
+
+    fetchData();
   }, []);
 
   return (
-    <div className="bg-gray-50 w-screen h-screen flex items-center justify-center">
-      <div className="bg-white shadow-lg rounded-lg p-8 w-full max-w-md">
+    <div className="bg-gray-400 w-screen h-screen flex items-center justify-center">
+      <div className="bg-slate-100 shadow-lg rounded-lg p-8 w-full max-w-md">
         <h2 className="font-bold text-3xl mb-6 text-center text-black">Todo List</h2>
 
         {/* Task Input */}
@@ -47,7 +47,8 @@ function Home() {
             onClick={handleAddTask}
             className="bg-blue-600 text-white px-4 py-2 rounded-md hover:bg-blue-700 transition-all duration-200"
           >
-            Add Task
+            <span className="hidden sm:inline">Add Task</span>
+            <span className="sm:hidden">Add</span>
           </button>
         </div>
 
@@ -56,7 +57,7 @@ function Home() {
           <button
             onClick={() => handleTabs(1)}
             className={`py-2 px-4 rounded-lg ${
-              tab === 1 ? "bg-blue-600 text-white" : "bg-gray-200 text-gray-600 hover:bg-blue-600 hover:text-white"
+              tab === 1 ? 'bg-blue-600 text-white' : 'bg-gray-200 text-gray-600 hover:bg-blue-600 hover:text-white'
             } transition-all duration-200`}
           >
             All
@@ -64,7 +65,7 @@ function Home() {
           <button
             onClick={() => handleTabs(2)}
             className={`py-2 px-4 rounded-lg ${
-              tab === 2 ? "bg-blue-600 text-white" : "bg-gray-200 text-gray-600 hover:bg-blue-600 hover:text-white"
+              tab === 2 ? 'bg-blue-600 text-white' : 'bg-gray-200 text-gray-600 hover:bg-blue-600 hover:text-white'
             } transition-all duration-200`}
           >
             Active
@@ -72,7 +73,7 @@ function Home() {
           <button
             onClick={() => handleTabs(3)}
             className={`py-2 px-4 rounded-lg ${
-              tab === 3 ? "bg-blue-600 text-white" : "bg-gray-200 text-gray-600 hover:bg-blue-600 hover:text-white"
+              tab === 3 ? 'bg-blue-600 text-white' : 'bg-gray-200 text-gray-600 hover:bg-blue-600 hover:text-white'
             } transition-all duration-200`}
           >
             Completed
@@ -80,7 +81,7 @@ function Home() {
         </div>
 
         {/* Task List */}
-        <div className="bg-gray-100 p-4 rounded-lg shadow-sm mb-4">
+        <div className="bg-gray-200 p-4 rounded-lg shadow-sm mb-4">
           <div className="flex justify-between items-center">
             <div>
               <p className="text-lg font-semibold text-gray-800">Buy Coffee</p>
@@ -102,10 +103,10 @@ function Home() {
         </div>
 
         {/* Placeholder for other tasks */}
-        <p className="text-center text-gray-500 mt-4">
-          {tab === 1 && "Showing all tasks"}
-          {tab === 2 && "Showing active tasks"}
-          {tab === 3 && "Showing completed tasks"}
+        <p className="text-center font-semibold text-slate-800 mt-4">
+          {tab === 1 && 'Showing All Tasks'}
+          {tab === 2 && 'Showing Active tasks'}
+          {tab === 3 && 'Showing Completed Tasks'}
         </p>
       </div>
     </div>
